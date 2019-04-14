@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import { Nav, NavItem, Navbar } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Auth } from 'aws-amplify'
 
@@ -15,7 +15,7 @@ class App extends Component {
 
     this.state = {
       isAuthenticated: false,
-      isAuthenticating: true
+      isAuthenticating: true,
     }
   }
 
@@ -35,14 +35,16 @@ class App extends Component {
     this.setState({ isAuthenticated: authenticated })
   }
 
-  handleLogout = event => {
+  handleLogout = async event => {
+    await Auth.signOut()
     this.userHasAuthenticated(false)
+    this.props.history.push('/login')
   }
 
   render() {
     const childProps = {
       isAuthenticated: this.state.isAuthenticated,
-      userHasAuthenticated: this.userHasAuthenticated
+      userHasAuthenticated: this.userHasAuthenticated,
     }
 
     return (
@@ -81,4 +83,4 @@ class App extends Component {
 
 App.propTypes = {}
 
-export default App
+export default withRouter(App)

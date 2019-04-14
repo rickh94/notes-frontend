@@ -14,6 +14,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "create-react-component-folder": "^0.1.28",
+    "eslint": "^5.16.0",
     "sass": "^1.18.0"
   },
   "crcf": [
