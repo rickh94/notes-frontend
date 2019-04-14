@@ -19,11 +19,17 @@ const NotFound = Loadable({
   loading: () => <div>Loading...</div>
 })
 
+const Signup = Loadable({
+  loader: () => import('./components/Signup'),
+  loading: () => <div>Loading...</div>
+})
+
 export default function Routes({ childProps }) {
   return (
     <Switch>
       <AppliedRoute path="/" exact component={Home} props={childProps} />
       <AppliedRoute path="/login" exact component={Login} props={childProps} />
+      <AppliedRoute path="/signup" exact component={Signup} props={childProps} />
       <Route component={NotFound} />
     </Switch>
   )
