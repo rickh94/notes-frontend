@@ -6,7 +6,7 @@ import { API } from 'aws-amplify'
 
 import { FilePond } from 'react-filepond'
 
-import 'filepond/dist/filepond.min.css'
+import 'filepond/dist/filepond.css'
 
 import { s3Upload } from '../../libs/awsLib'
 
@@ -34,9 +34,9 @@ class NewNote extends Component {
     })
   }
 
-  handleFileChange = event => {
-    this.file = event.target.files[0]
-  }
+  // handleFileChange = event => {
+  //   this.file = event.target.files[0]
+  // }
 
   handleSubmit = async event => {
     event.preventDefault()
@@ -51,21 +51,23 @@ class NewNote extends Component {
     this.setState({ isLoading: true })
 
     try {
+      console.log(this.file)
       const attachment = this.file ? await s3Upload(this.file) : null
+      console.log(attachment)
 
       this.createNote({
         attachment,
         content: this.state.content
       })
-      this.props.history.push("/")
+      this.props.history.push('/')
     } catch (e) {
       alert(e)
-      this.setState({isLoading: false})
+      this.setState({ isLoading: false })
     }
   }
 
   createNote(note) {
-    return API.post("notes", "/notes", {
+    return API.post('notes', '/notes', {
       body: note
     })
   }
@@ -84,7 +86,13 @@ class NewNote extends Component {
           <FormGroup controlId="file">
             <ControlLabel>Attachment</ControlLabel>
             {/* <FormControl onChange={this.handleFileChange} type="file" /> */}
-            <FilePond file={this.state.file} allowMultiple={false} onupdatefiles={fileItems => this.setState({file: fileItems[0].file})} />
+            <FilePond
+              file={this.file}
+              allowMultiple={false}
+              onupdatefiles={fileItems => {
+                this.file = fileItems[0].file
+              }}
+            />
           </FormGroup>
           <LoaderButton
             block

@@ -1,10 +1,16 @@
 {
   "dependencies": {
+    "autoprefixer": "^9.5.1",
     "aws-amplify": "^1.1.26",
+    "browserslist": "^4.5.5",
     "filepond": "^4.4.0",
-    "react": "*",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-modules": "^1.4.1",
+    "postcss-url": "^8.0.0",
+    "react": "^16.0.0",
     "react-bootstrap": "0.32.4",
-    "react-dom": "^16.8.6",
+    "react-dom": "^16.0.0",
     "react-filepond": "^7.0.1",
     "react-loadable": "^5.5.0",
     "react-router-bootstrap": "^0.25.0",
@@ -19,6 +25,7 @@
     "create-react-component-folder": "^0.1.28",
     "cssnano": "^4.1.10",
     "eslint": "^5.16.0",
+    "parcel": "^1.12.3",
     "sass": "^1.18.0"
   },
   "crcf": [
@@ -31,7 +38,7 @@
   "scripts": {
     "test": "jest",
     "serve": "parcel index.html",
-    "build": "parcel build index.html",
+    "build": "rm -rf dist/* && parcel build index.html",
     "watch": "parcel watch index.html",
     "crcf": "crcf"
   },
@@ -39,7 +46,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "browserslist": [
+  "browsers": [
     "> 3%"
   ]
 }
