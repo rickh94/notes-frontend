@@ -4,6 +4,10 @@ import LoaderButton from '../LoaderButton'
 import config from '../../config'
 import { API } from 'aws-amplify'
 
+import { FilePond } from 'react-filepond'
+
+import 'filepond/dist/filepond.min.css'
+
 import { s3Upload } from '../../libs/awsLib'
 
 import './NewNote.scss'
@@ -79,7 +83,8 @@ class NewNote extends Component {
           </FormGroup>
           <FormGroup controlId="file">
             <ControlLabel>Attachment</ControlLabel>
-            <FormControl onChange={this.handleFileChange} type="file" />
+            {/* <FormControl onChange={this.handleFileChange} type="file" /> */}
+            <FilePond file={this.state.file} allowMultiple={false} onupdatefiles={fileItems => this.setState({file: fileItems[0].file})} />
           </FormGroup>
           <LoaderButton
             block

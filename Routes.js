@@ -29,6 +29,11 @@ const NewNote = Loadable({
   loading: () => <div>Loading...</div>
 })
 
+const Notes = Loadable({
+  loader: () => import('./components/Notes'),
+  loading: () => <div>Loading...</div>
+})
+
 export default function Routes({ childProps }) {
   return (
     <Switch>
@@ -36,6 +41,7 @@ export default function Routes({ childProps }) {
       <AppliedRoute path="/login" exact component={Login} props={childProps} />
       <AppliedRoute path="/signup" exact component={Signup} props={childProps} />
       <AppliedRoute path="/notes/new" exact component={NewNote} props={childProps} />
+      <AppliedRoute path="/notes/:id" exact component={Notes} props={childProps} />
       <Route component={NotFound} />
     </Switch>
   )
