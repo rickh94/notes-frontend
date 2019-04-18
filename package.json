@@ -40,7 +40,10 @@
     "serve": "parcel index.html",
     "build": "rm -rf dist/* && parcel build index.html",
     "watch": "parcel watch index.html",
-    "crcf": "crcf"
+    "crcf": "crcf",
+    "predeploy": "yarn build",
+    "deploy": "aws s3 sync dist/ s3://notes-frontedn-28705 --delete",
+    "postdeploy": "aws cloudfront create-invalidation --distribution-id E389DB2WBFLCLJ --paths \"/*\""
   },
   "name": "notes-frontend",
   "version": "1.0.0",
