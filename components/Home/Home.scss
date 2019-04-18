@@ -11,6 +11,16 @@
     p {
       color: #999;
     }
+    div {
+      padding-top: 20px;
+      a:first-child {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  .lander-button {
+    margin: 0 20px;
   }
 
   .notes {

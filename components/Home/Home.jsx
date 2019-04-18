@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { PageHeader, ListGroup, ListGroupItem } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
+import { Link } from 'react-router-dom'
 
 import { API } from 'aws-amplify'
 
@@ -12,7 +13,7 @@ class Home extends Component {
 
     this.state = {
       isLoading: true,
-      notes: [],
+      notes: []
     }
   }
 
@@ -60,6 +61,12 @@ class Home extends Component {
       <div className="lander">
         <h1>Scratch</h1>
         <p>A simple note taking app</p>
+        <Link to="/login" className="btn btn-info btn-lg lander-button">
+          Login
+        </Link>
+        <Link to="/signup" className="btn btn-success btn-lg lander-button">
+          Signup
+        </Link>
       </div>
     )
   }
