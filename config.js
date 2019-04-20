@@ -23,7 +23,7 @@ const prod = {
   },
   apiGateway: {
     REGION: 'us-east-1',
-    URL: 'https://ujxk2e6n19.execute-api.us-east-1.amazonaws.com/prod'
+    URL: 'https://notes-api.temptestsites.online'
   },
   cognito: {
     REGION: 'us-east-1',
@@ -35,6 +35,7 @@ const prod = {
 }
 
 const config = process.env.REACT_APP_STAGE === 'prod' ? prod : dev
+// const config = prod
 
 export default {
   MAX_ATTACHMENT_SIZE: 5000000,
