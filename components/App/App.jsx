@@ -6,6 +6,8 @@ import { Link, withRouter } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Auth } from 'aws-amplify'
 
+import config from '../../config'
+
 import Routes from '../../Routes'
 import './App.scss'
 
@@ -50,6 +52,12 @@ class App extends Component {
     return (
       !this.state.isAuthenticating && (
         <div className="App container">
+          {config.stage === 'dev' && (
+            <React.Fragment>
+              <h4 className="dev-title">Development Mode</h4>
+              <div className="dev-marker" />
+            </React.Fragment>
+          )}
           <Navbar fluid collapseOnSelect>
             <Navbar.Header>
               <Navbar.Brand>

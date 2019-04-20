@@ -1,11 +1,12 @@
 const dev = {
+  stage: 'dev',
   s3: {
     REGION: 'us-east-1',
     BUCKET: 'notes-python-api-dev-attachmentsbucket-aea8cgqulfwf'
   },
   apiGateway: {
     REGION: 'us-east-1',
-    URL: 'https://ufjszng38b.execute-api.us-east-1.amazonaws.com/dev'
+    URL: 'https://notes-api-dev.temptestsites.online'
   },
   cognito: {
     REGION: 'us-east-1',
@@ -17,6 +18,7 @@ const dev = {
 }
 
 const prod = {
+  stage: 'prod',
   s3: {
     REGION: 'us-east-1',
     BUCKET: 'notes-python-api-prod-attachmentsbucket-1o5kf4pdbigpk'
