@@ -34,10 +34,6 @@ class NewNote extends Component {
     })
   }
 
-  // handleFileChange = event => {
-  //   this.file = event.target.files[0]
-  // }
-
   handleSubmit = async event => {
     event.preventDefault()
 
@@ -51,9 +47,7 @@ class NewNote extends Component {
     this.setState({ isLoading: true })
 
     try {
-      console.log(this.file)
       const attachment = this.file ? await s3Upload(this.file) : null
-      console.log(attachment)
 
       this.createNote({
         attachment,
