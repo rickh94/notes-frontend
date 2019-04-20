@@ -30,7 +30,6 @@
   },
   "crcf": [
     "scss",
-    "proptypes",
     "jsx",
     "uppercase",
     "spec"

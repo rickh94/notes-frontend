@@ -15,7 +15,7 @@ class App extends Component {
 
     this.state = {
       isAuthenticated: false,
-      isAuthenticating: true,
+      isAuthenticating: true
     }
   }
 
@@ -44,7 +44,7 @@ class App extends Component {
   render() {
     const childProps = {
       isAuthenticated: this.state.isAuthenticated,
-      userHasAuthenticated: this.userHasAuthenticated,
+      userHasAuthenticated: this.userHasAuthenticated
     }
 
     return (
@@ -60,7 +60,12 @@ class App extends Component {
             <Navbar.Collapse>
               <Nav pullRight>
                 {this.state.isAuthenticated ? (
-                  <NavItem onClick={this.handleLogout}>Logout</NavItem>
+                  <React.Fragment>
+                    <LinkContainer to="/settings">
+                      <NavItem>Settings</NavItem>
+                    </LinkContainer>
+                    <NavItem onClick={this.handleLogout}>Logout</NavItem>
+                  </React.Fragment>
                 ) : (
                   <React.Fragment>
                     <LinkContainer to="/signup">
