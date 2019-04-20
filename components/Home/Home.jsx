@@ -60,7 +60,7 @@ class Home extends Component {
     return (
       <div className="lander">
         <h1>Scratch</h1>
-        <p>A very expensive note taking app</p>
+        <p>A simple note taking app</p>
         <Link to="/login" className="btn btn-info btn-lg lander-button">
           Login
         </Link>
