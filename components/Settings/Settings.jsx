@@ -13,6 +13,7 @@ class Settings extends Component {
   billUser(details) {
     return API.post('notes', '/billing', { body: details })
   }
+  
   render() {
     return <div className="Settings">Settings</div>
   }
